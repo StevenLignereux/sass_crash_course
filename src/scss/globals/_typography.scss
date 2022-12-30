@@ -1,0 +1,16 @@
+//Styles relatifs aux éléments textes
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0; // les navigateurs ont par défaut des margins en haut et en bas
+}
+
+p {
+  margin-top: 0;
+}
+
+//On retire le style par défaut des liens
+a, a:visited, a:active {
+  text-decoration: none;
+}

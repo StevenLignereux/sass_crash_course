@@ -1,0 +1,21 @@
+//Ici le style global
+
+// import de notre font
+@use '../util';
+
+html {
+  box-sizing: border-box; // Permet d'être sûr de la taille de son élément
+  font-size: 100%; // Permet d'être sûr que la font marche à 100% avec les paramètres navigateurs
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; //prennent la valeur de leur élément html
+}
+
+body {
+  margin: 0; // reset les paramètres du navigateur
+  padding: 0; // reset les paramètres du navigateur
+  font-family: util.$font; // On doit préciser le namespace de la variable pour éviter les conflits ou les surcharges
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
