@@ -1,4 +1,5 @@
 // Ici les éléments pour contrôler notre grille
+@use '../util';
 
 
 .grid {
@@ -21,8 +22,9 @@
   /* On ajoute un media-query pour la vue desktop
   ici elle est simple donc on utilise qu'un seul breakpoint
   en général les design mobiles sont plus complexes,
-  alors on utilise la min-with pour éviter qu'il n'y ait trop de règles et des conflits. */
-  @media (min-width: 900px) {
+  alors on utilise la min-with pour éviter qu'il n'y ait trop de règles et des conflits.
+  On utilisera plutôt une mixin pour les medias query */
+  @include util.breakpoint(large) {
     grid-template-columns: 2fr 1fr; // la première colonne aura 2x plus d'espaces que la seconde
     grid-template-rows: auto; // pour éliminer le gap créée par la vue mobile
   }
@@ -39,5 +41,14 @@
 
   &__sidebar {
     background-color: hsl(300, 100%, 30%);
+
+    //On utilise ici un media query avec une max-width pour éviter la répétition de code
+    @include util.breakpoint-down(medium){
+      text-align: center;
+    }
+
+    @include util.breakpoint-down(small){
+      text-align: right;
+    }
   }
 }

@@ -1,0 +1,30 @@
+/* On va créer une map sass pour les tailles d'écrans (700px, 900px, 1440px),
+   elle fonctionne comme les objets javascript
+   On va utiliser l'unité des em (la taille de l'élément est relative à la taille par défaut du parent)
+   ici la taille par défaut de la font du navigateur (16px = 1em). */
+$breakpoints-up: (
+        "medium": 43.75em,
+        "large": 56.25em,
+        "xlarge": 90em,
+);
+
+// On créer une autre map qui va utiliser des max-width afin d'éviter les comportements étranges
+$breakpoints-down: (
+        "small": 43.7485em,
+        "medium": 56.24875em,
+        "large": 89.99875em,
+);
+
+/* Permet de créer un groupe de règles css, qui va prendre la taille en paramètre
+   que l'on va utiliser dans notre fonction map-get */
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content; // Permet de charger nos règles dans le mixin lorsqu'il est utilisé
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
