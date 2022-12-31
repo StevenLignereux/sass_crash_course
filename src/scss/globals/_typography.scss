@@ -1,13 +1,24 @@
 //Styles relatifs aux éléments textes
 
+
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.1;
   margin-top: 0; // les navigateurs ont par défaut des margins en haut et en bas
 }
 
+h1 {
+  // Il vaut mieux utiliser l'unité viewport pour le responsive (1vw = 1% de l'appareil utilisé)
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem); // on limite une valeur entre deux valeur extrêmes
+}
+
+h2 {
+  font-size: clamp(1.375rem, 0.875rem + 1.5vw, 2.25rem); // on limite une valeur entre deux valeur extrêmes
+}
+
 p {
   margin-top: 0;
+  font-size: 1rem;
 }
 
 //On retire le style par défaut des liens

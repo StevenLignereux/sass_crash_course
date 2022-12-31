@@ -13,10 +13,8 @@
 
   // Permet de définir un seuil maximal de taille à ne pas dépasser, on soustrait l'espace que l'on veut
   width: min(100% - 40px, 1000px);
-
   margin-inline: auto; // Pour centrer le contenu, permet de gérer la droite et la gauche (start, end)
-  padding-left: 20px;
-  padding-right: 20px;
+  font-size: 2em;
 
 
   /* On ajoute un media-query pour la vue desktop
