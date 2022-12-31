@@ -1,0 +1,24 @@
+// Ici notre fichier de fonctions
+@use "sass:math";
+
+// font-size: rem(30);
+@function rem($pixel) {
+  // Capturer les erreurs si le paramètre a une unité
+  @if math.is-unitless($pixel) {
+    // On divise les pixels par 16 (font par défaut du navigateur) pour retourner des rems
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error "N'utilisez pas les unités quand vous utilisé la fonction rem(), seulement des nombres";
+  }
+}
+
+// font-size: em(30);
+@function em($pixel) {
+  // Capturer les erreurs si le paramètre a une unité
+  @if math.is-unitless($pixel) {
+    // On divise les pixels par 16 (font par défaut du navigateur) pour retourner des rems
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error "N'utilisez pas les unités quand vous utilisé la fonction em(), seulement des nombres";
+  }
+}

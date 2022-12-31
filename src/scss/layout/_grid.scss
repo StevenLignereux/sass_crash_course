@@ -1,6 +1,5 @@
 // Ici les éléments pour contrôler notre grille
-@use '../util';
-
+@use "../util";
 
 .grid {
   /* - On utilise la propriété grid pour faire deux colones
@@ -9,13 +8,12 @@
 
   grid-template-columns: 1fr; // On veut une colonne
   grid-template-rows: auto auto; // la taille est basé sur la taille du contenu dans l'enfant
-  gap: 40px; // On contrôle l'espacement entre les colones avec cette propriété
+  gap: util.rem(40); // On contrôle l'espacement entre les colones avec cette propriété
 
   // Permet de définir un seuil maximal de taille à ne pas dépasser, on soustrait l'espace que l'on veut
-  width: min(100% - 40px, 1000px);
+  width: min(100% - util.rem(40), 1000px);
   margin-inline: auto; // Pour centrer le contenu, permet de gérer la droite et la gauche (start, end)
   font-size: 2em;
-
 
   /* On ajoute un media-query pour la vue desktop
   ici elle est simple donc on utilise qu'un seul breakpoint
@@ -27,10 +25,10 @@
     grid-template-rows: auto; // pour éliminer le gap créée par la vue mobile
   }
 
-
   // On ajoute de l'espace à nos deux éléments
-  &__main, &__sidebar {
-    padding: 40px;
+  &__main,
+  &__sidebar {
+    padding: util.rem(40);
   }
 
   &__main {
@@ -41,11 +39,11 @@
     background-color: hsl(300, 100%, 30%);
 
     //On utilise ici un media query avec une max-width pour éviter la répétition de code
-    @include util.breakpoint-down(medium){
+    @include util.breakpoint-down(medium) {
       text-align: center;
     }
 
-    @include util.breakpoint-down(small){
+    @include util.breakpoint-down(small) {
       text-align: right;
     }
   }
