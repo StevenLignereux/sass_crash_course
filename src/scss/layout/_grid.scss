@@ -1,12 +1,6 @@
 // Ici les éléments pour contrôler notre grille
 @use "../util";
 
-// Utilisation d'un placeholder en sass pour du style particulier
-%widget {
-  // On ajoute du padding pour éviter le comportement étrange du "margin collapse" (ajout de marges par défaut du navitageur)
-  padding: util.rem(16);
-}
-
 .grid {
   /* - On utilise la propriété grid pour faire deux colones
      - A noter que la grille s'organise selon l'ordre du contenu html  */
@@ -39,10 +33,6 @@
     padding: util.rem(40);
   }
 
-  &__main {
-    background-color: hsl(240, 99%, 33%);
-  }
-
   &__sidebar {
     //On utilise ici un media query avec une max-width pour éviter la répétition de code
     @include util.breakpoint-down(medium) {
@@ -55,15 +45,7 @@
   }
 
   &__widget {
-    &--magenta {
-      @extend %widget;
-      background-color: hsl(300, 100%, 30%);
-    }
-
-    &--green {
-      // Permet d'éviter la répitition du code, à utiliser pour des éléments proches sinon les règles seront désordonées
-      @extend %widget;
-      background-color: hsl(120, 100%, 27%);
-    }
+    // On ajoute du padding pour éviter le comportement étrange du "margin collapse" (ajout de marges par défaut du navitageur)
+    padding: util.rem(16);
   }
 }
