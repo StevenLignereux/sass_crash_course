@@ -1,40 +1,32 @@
-// Ici les éléments pour contrôler notre grille
 @use "../util";
 
 .grid {
-  /* - On utilise la propriété grid pour faire deux colones
-     - A noter que la grille s'organise selon l'ordre du contenu html  */
+  // Note that the grid is organized according to the order of the HTML content
   display: grid;
 
-  grid-template-columns: 1fr; // On veut une colonne
-  grid-template-rows: auto auto; // la taille est basé sur la taille du contenu dans l'enfant
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto; // The size is based on the size of the content in the child.
+  // We control the spacing between the columns with this property
   gap: util.rem(
     40
-  ); // On contrôle l'espacement entre les colones avec cette propriété
+  );
 
-  // Permet de définir un seuil maximal de taille à ne pas dépasser, on soustrait l'espace que l'on veut
+  // It allows you to set a maximum size threshold that should not be exceeded, subtracting the space you want.
   width: min(100% - util.rem(40), util.rem(1000));
-  margin-inline: auto; // Pour centrer le contenu, permet de gérer la droite et la gauche (start, end)
+  margin-inline: auto; 
   font-size: 2em;
 
-  /* On ajoute un media-query pour la vue desktop
-  ici elle est simple donc on utilise qu'un seul breakpoint
-  en général les design mobiles sont plus complexes,
-  alors on utilise la min-with pour éviter qu'il n'y ait trop de règles et des conflits.
-  On utilisera plutôt une mixin pour les medias query */
   @include util.breakpoint(large) {
-    grid-template-columns: 2fr 1fr; // la première colonne aura 2x plus d'espaces que la seconde
-    grid-template-rows: auto; // pour éliminer le gap créée par la vue mobile
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto; // to eliminate the gap created by the mobile view.
   }
 
-  // On ajoute de l'espace à nos deux éléments
   &__main,
   &__sidebar {
     padding: util.rem(40);
   }
 
   &__sidebar {
-    //On utilise ici un media query avec une max-width pour éviter la répétition de code
     @include util.breakpoint-down(medium) {
       text-align: center;
     }
@@ -45,7 +37,7 @@
   }
 
   &__widget {
-    // On ajoute du padding pour éviter le comportement étrange du "margin collapse" (ajout de marges par défaut du navitageur)
+    // We add padding to avoid the strange behavior of "margin collapse" (the addition of default margins by the browser).
     padding: util.rem(16);
   }
 }

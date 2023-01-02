@@ -1,20 +1,18 @@
-//Styles relatifs aux éléments textes
 @use "../util";
 
 
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.1;
-  margin-top: 0; // les navigateurs ont par défaut des margins en haut et en bas
+  margin-top: 0; // Browsers have default margins at the top and bottom by default.
 }
 
 h1 {
-  // Il vaut mieux utiliser l'unité viewport pour le responsive (1vw = 1% de l'appareil utilisé)
-  font-size: clamp(util.rem(28), util.rem(16) + 2vw, util.rem(40)); // on limite une valeur entre deux valeur extrêmes
+  font-size: clamp(util.rem(28), util.rem(16) + 2vw, util.rem(40));
 }
 
 h2 {
-  font-size: clamp(util.rem(22), util.rem(14) + 1.5vw, util.rem(36)); // on limite une valeur entre deux valeur extrêmes
+  font-size: clamp(util.rem(22), util.rem(14) + 1.5vw, util.rem(36));
 }
 
 p {
@@ -22,7 +20,6 @@ p {
   font-size: util.rem(16);
 }
 
-//On retire le style par défaut des liens
 a, a:visited, a:active {
   text-decoration: none;
 }
