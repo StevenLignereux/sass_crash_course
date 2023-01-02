@@ -1,9 +1,9 @@
-
 @use "../util";
 
 html {
   box-sizing: border-box;
   font-size: 100%;
+}
 
 *,
 *::before,
@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
   font-family: util.$font; // We must specify the namespace of the variable to avoid conflicts or overloads
   background-color: var(--background-color);
   color: var(--text-color);
